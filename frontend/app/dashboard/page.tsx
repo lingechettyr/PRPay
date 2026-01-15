@@ -1,3 +1,9 @@
+import { AppSidebar } from "@/components/sidebarLogin";
+
 export default function DashboardPage() {
-    return <div>Dashboard Page</div>;
+    return (
+    <div>
+        <AppSidebar />
+    </div>
+    )
 }

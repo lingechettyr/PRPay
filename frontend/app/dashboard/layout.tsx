@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
   title: "PRPay Dashboard",
@@ -12,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-full gap-4">
-        {children}
+    <div className="w-full">
+      <SidebarProvider>{children}</SidebarProvider>
     </div>
   );
 }
