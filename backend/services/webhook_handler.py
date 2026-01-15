@@ -99,7 +99,7 @@ def handle_review_requested(db: Client, payload: PullRequestWebhookPayload) -> N
             "user_id": str(reviewer.id),
             "pr_id": pr_id,
             "status": ReviewStatus.REQUESTED.value,
-            "payout": 0.00,
+            "payout": 1.00,
         },
         on_conflict="user_id,pr_id",
     ).execute()
