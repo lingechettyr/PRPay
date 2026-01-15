@@ -9,7 +9,7 @@ export default function ClaimPR(props: ReviewPRProps){
                 <CardTitle>{props.pr_title}</CardTitle>
                 <CardDescription>{props.pr_created_at}</CardDescription>
                 <CardAction>
-                    <ClaimButton pr_id={props.pr_id} />
+                    <ClaimButton pr_id={props.pr_id} payout={props.payout} />
                 </CardAction>
             </CardHeader>
         </Card>

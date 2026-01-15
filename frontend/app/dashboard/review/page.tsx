@@ -29,6 +29,7 @@ export default async function ReviewPage(){
                     pr_title={pr.pr_title}
                     pr_created_at={pr.pr_created_at}
                     pr_url={pr.pr_url}
+                    payout={pr.payout}
                 />
             ))}
         </div>
