@@ -18,3 +18,14 @@ class ClaimPRResponse(BaseModel):
 class ErrorResponse(BaseModel):
     error: str
     detail: str | None = None
+
+
+class StatsResponse(BaseModel):
+    """Response model for analytics statistics"""
+    claimable_total_value: float = Field(..., description="Total dollar value of claimable PRs")
+    claimable_pr_count: int = Field(..., description="Number of claimable PRs")
+    claimed_total_value: float = Field(..., description="Total dollar value of claimed PRs")
+    claimed_pr_count: int = Field(..., description="Number of claimed PRs")
+    total_prs_reviewed: int = Field(..., description="Total number of PRs reviewed (done status)")
+    start_time: str = Field(..., description="Start time of the query period")
+    end_time: str = Field(..., description="End time of the query period")

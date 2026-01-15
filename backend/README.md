@@ -1,41 +1,59 @@
-# FastAPI Starter
+# PRPay Backend
 
-Deploy your [FastAPI](https://fastapi.tiangolo.com/) project to Vercel with zero configuration.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/fastapi&template=fastapi)
-
-_Live Example: https://vercel-plus-fastapi.vercel.app/_
-
-Visit the [FastAPI documentation](https://fastapi.tiangolo.com/) to learn more.
+FastAPI backend for PRPay - a GitHub PR review payment and tracking system.
 
 ## Getting Started
 
-Install the required dependencies:
+### Prerequisites
+
+- Python 3.10+
+- Supabase account and project
+
+### Environment Setup
+
+1. Create a `.env` file in the backend directory with your Supabase credentials:
+   ```
+   SUPABASE_URL=your_supabase_url
+   SUPABASE_KEY=your_supabase_key
+   ```
+
+### Installation
+
+Install the required dependencies using a virtual environment:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install .
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
 ```
-
-Or, if using [uv](https://docs.astral.sh/uv/):
-
-```bash
-uv sync
-```
-
 
 ## Running Locally
 
-Start the development server on http://0.0.0.0:5001
+Start the development server with uvicorn:
 
 ```bash
-python main.py
-# using uv:
-uv run main.py
+# Make sure virtual environment is activated
+source venv/bin/activate
+
+# Start server (default port 8000)
+uvicorn main:app --reload
+
+# Or specify a different port
+uvicorn main:app --reload --port 8001
 ```
 
-When you make changes to your project, the server will automatically reload.
+The server will be available at:
+- API: `http://127.0.0.1:8000` (or your specified port)
+- Interactive API docs (Swagger): `http://127.0.0.1:8000/docs`
+- Alternative API docs (ReDoc): `http://127.0.0.1:8000/redoc`
+
+The `--reload` flag enables auto-reload on code changes for development.
+
 
 ## Deploying to Vercel
 
@@ -47,5 +65,3 @@ vercel --prod
 ```
 
 Or `git push` to your repository with our [git integration](https://vercel.com/docs/deployments/git).
-
-To view the source code for this template, [visit the example repository](https://github.com/vercel/vercel/tree/main/examples/fastapi).
