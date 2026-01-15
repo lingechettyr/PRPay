@@ -19,7 +19,7 @@ export default async function CompletedPage(){
     const data: ReviewPRProps[]  = await res.json();
     console.log("Review PRs Data:", data);
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
             {data.map((pr) => (
                 <CompletedPR 
                     key={pr.pr_id}

@@ -21,7 +21,7 @@ export default async function ReviewPage(){
     console.log("Review PRs Data:", data);
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-4">
             {data.map((pr) => (
                 <ReviewPR 
                     key={pr.pr_id}
