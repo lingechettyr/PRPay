@@ -71,6 +71,13 @@ def handle_pr_closed(db: Client, payload: PullRequestWebhookPayload) -> None:
             .eq("status", ReviewStatus.APPROVED.value)
             .execute()
         )
+        (
+            db.table("user_pr_reviews")
+            .update({"status": ReviewStatus.INELIGIBLE.value})
+            .eq("pr_id", pr_id)
+            .eq("status", ReviewStatus.REQUESTED.value)
+            .execute()
+        )
     else:
         (
             db.table("user_pr_reviews")

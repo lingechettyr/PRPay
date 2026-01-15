@@ -1,4 +1,6 @@
-import ReviewPR, { ReviewPRProps } from "@/components/events/reviewPr";
+
+import ReviewPR from "@/components/events/reviewPr";
+import ReviewPRProps from "@/components/events/types";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function ReviewPage(){

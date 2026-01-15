@@ -1,14 +1,15 @@
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "../ui/card";
 import ClaimButton from "../claimButton";
+import ReviewPRProps from "./types";
 
-export default function ClaimPR(){
+export default function ClaimPR(props: ReviewPRProps){
     return (
         <Card className="w-full bg-green-300/20">
             <CardHeader>
-                <CardTitle>PR Title</CardTitle>
-                <CardDescription>PR Date</CardDescription>
+                <CardTitle>{props.pr_title}</CardTitle>
+                <CardDescription>{props.pr_created_at}</CardDescription>
                 <CardAction>
-                    <ClaimButton />
+                    <ClaimButton pr_id={props.pr_id} />
                 </CardAction>
             </CardHeader>
         </Card>
