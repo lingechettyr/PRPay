@@ -49,9 +49,10 @@ async def handle_github_pr_webhook(payload: PullRequestWebhookPayload):
         case PRAction.REVIEW_REQUESTED:
             reviewer = payload.requested_reviewer
             logger.info(
-                "PR #%d review requested from %s — %s",
+                "PR #%d review requested from %s (id: %s) — %s",
                 pr.number,
                 reviewer.login if reviewer else "unknown",
+                reviewer.id if reviewer else "unknown",
                 pr.html_url,
             )
 
